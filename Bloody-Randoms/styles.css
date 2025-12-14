@@ -1,0 +1,320 @@
+/* ========== BASE STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: auto;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background-color: #050505;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* ========== NEON ANIMATION ========== */
+@keyframes neonPulse {
+    0%, 100% {
+        text-shadow: 0 0 10px #39ff14, 0 0 20px #37ff14, 0 0 30px #39ff14, 0 0 40px #39ff14;
+    }
+    50% {
+        text-shadow: 0 0 20px #39ff14, 0 0 40px #39ff14, 0 0 60px #39ff14, 0 0 80px #39ff14;
+    }
+}
+
+
+/* ========== GLOBAL COLORS ========== */
+:root {
+    --bg-dark: #050505;
+    --bg-mid: #0f0f0f;
+    --text: #d8d8d8;
+    --neon: #39ff14; /* Pure Neon Green */
+    --neon-glow: 0 0 10px #37ff14be, 0 0 20px #37ff14dd, 0 0 30px #37ff14df;
+}
+
+/* ========== LAYOUT HELPERS ========== */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.section {
+    padding: 4rem 0;
+    border-bottom: 1px solid #111;
+}
+
+/* ========== HEADER ========== */
+header {
+    background-color: var(--bg-mid);
+    border-bottom: 2px solid var(--neon);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
+    padding: 1rem 0;
+    position: static;
+    top: 0;
+    z-index: 100;
+}
+/* ========== PULSING LOGO BUTTON FIXED ========== */
+@keyframes neonPulseLogo {
+    0%, 100% {
+        box-shadow: 0 0 10px #39ff14, 0 0 20px #37ff14, 0 0 30px #39ff14, 0 0 40px #39ff14;
+    }
+    50% {
+        box-shadow: 0 0 20px #39ff14, 0 0 40px #37ff14, 0 0 60px #39ff14, 0 0 80px #39ff14;
+    }
+}
+
+/* Fixed Position */
+.logo-button {
+    position: fixed;
+    top: 1rem;
+    left: 1rem; /* ändern auf right:1rem; falls rechts gewünscht */
+    z-index: 999;
+    display: block;       /* sicherstellen, dass kein extra inline-Raum */
+    width: auto;          /* passt sich der Bildgröße an */
+    height: auto;
+    padding: 0;           /* Padding entfernen */
+    margin: 0;            /* Margin entfernen */
+    animation: neonPulseLogo 2s infinite ease-in-out;
+    border-radius: 5%;
+    line-height: 0;       /* verhindert zusätzliches vertikales „Herausschauen“ */
+    text-decoration: none; /* Link-Standard entfernen */
+}
+
+.logo-button img {
+    display: block;       /* verhindert extra whitespace unter Image */
+    height: 50px;         /* anpassen nach Wunsch */
+    width: auto;
+    border: solid 2px rgb(204, 228, 198);
+    border-radius: 5%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.logo-button img:hover {
+    transform: scale(1.1);
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+    text-align: center;
+}
+
+.hero-text {
+    max-width: 700px;
+    margin: 1.5rem auto 2.5rem;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+/* CTA Buttons */
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.primary-cta {
+    background-color: var(--neon);
+    color: #000;
+    padding: 0.9rem 1.8rem;
+    border: solid 2px whitesmoke;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.8);
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.primary-cta:hover {
+    transform: translateY(-2px); 
+    box-shadow: var(--neon-glow);
+    
+}
+
+.secondary-cta {
+    border: solid 2px whitesmoke;
+    background-color: var(--neon);
+    color: #000;
+    padding: 0.9rem 1.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.8);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.secondary-cta:hover {
+    background-color: var(--neon);
+    color: #000;
+    box-shadow: var(--neon-glow);
+}
+
+
+header h1 {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    text-align: center;
+    color: var(--neon);
+    text-shadow: var(--neon-glow);
+    animation: neonPulse 5s infinite ease-in-out;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+nav a:hover {
+    color: var(--neon);
+    text-shadow: var(--neon-glow);
+}
+
+/* ========== SECTIONS ========== */
+h2 {
+    color: var(--neon);
+    margin-bottom: 1rem;
+    text-shadow: var(--neon-glow);
+    font-size: 2.6rem;
+}
+
+/* ========== PROJECT CARDS ========== */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: var(--bg-mid);
+    border: 1px solid #111;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 1rem;
+    transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.3);
+}
+
+.card img {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #111;
+}
+
+.card h3 {
+    color: var(--neon);
+    margin: 1rem 0 0.5rem;
+    text-shadow: var(--neon-glow);
+}
+/* ========== GAME DETAIL ========== */
+.game-status {
+    margin: 1.5rem 0;
+    font-weight: 600;
+    color: var(--neon);
+    text-shadow: var(--neon-glow);
+}
+
+.game-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.game-links a {
+    border: 1px solid var(--neon);
+    color: var(--neon);
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.game-links a:hover {
+    background-color: var(--neon);
+    color: #000;
+    box-shadow: var(--neon-glow);
+}
+
+.game-links .disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* ========== CONTACT LINKS ========== */
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.links a {
+    background-color: transparent;
+    color: var(--neon);
+    border: 1px solid var(--neon);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.links a:hover {
+    background-color: var(--neon);
+    color: #000;
+    box-shadow: var(--neon-glow);
+    transform: translateY(-2px);
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background-color: var(--bg-mid);
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 2px solid var(--neon);
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE TWEAKS ========== */
+@media (max-width: 600px) {
+    nav ul {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .links {
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .card {
+        margin: 0 auto;
+    }
+}
